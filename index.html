@@ -44,16 +44,6 @@
       animation: cair linear forwards;
     }
 
-    .gifs-container {
-      display: flex;
-      flex-direction: column; /* empilha verticalmente */
-      align-items: center;    /* centraliza horizontalmente */
-      gap: 20px;              /* espaço entre os GIFs */
-      position: relative;     /* mantém acima das caveiras */
-      z-index: 2;
-    }
-
-
     /* Animação de queda */
     @keyframes cair {
       from {
@@ -70,10 +60,10 @@
 <body>
   <h1>Procura-se viúva do pegadinhas</h1>
   <p>Com recompensa.</p>
-  <div class="gifs-container">
-    <img src="miguelao gif.gif" alt="Miguelao" width="700" height="400">
-    <img src="pegadas.gif" alt="Pegadas" width="700" height="400">
-  </div>
+  
+  <video width="1600" height="900" autoplay loop controls>
+    <source src="miguedinhas.mp4" type="video/mp4">
+  </video>
 
 
   <script>
