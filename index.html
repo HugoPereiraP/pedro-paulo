@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punhetinhas</title>
+  <style>
+    body {
+      background-color: black;
+      background-image: url(download.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Courier New', Courier, monospace;
+      color: black;
+      text-align: center;
+      overflow: hidden; /* impede rolagem */
+      height: 200vh;
+      margin: 0;
+      position: relative;
+    }
+
+    h1, p {
+      position: relative;
+      z-index: 2; /* fica acima das caveiras */
+    }
+
+    img {
+      max-width: 90%;
+      position: relative;
+      z-index: 2; /* imagem acima das caveiras */
+    }
+
+    /* Estilo das caveiras */
+    .caveira {
+      position: absolute;
+      top: -50px;
+      color: white;
+      font-size: 40px;
+      opacity: 0.8;
+      user-select: none;
+      z-index: 1;
+      animation: cair linear forwards;
+    }
+
+    /* Animação de queda */
+    @keyframes cair {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Procura-se viúva do pegadinhas</h1>
+  <p>Com recompensa.</p>
+  <img src="miguelao.jpg" alt="Descrição da imagem" width="7000" height="220">
+
+
+  <script>
+    function criarCaveira() {
+      const caveira = document.createElement("div");
+      caveira.classList.add("caveira");
+      caveira.textContent = "💀"; // emoji da caveira
+      document.body.appendChild(caveira);
+
+      // posição aleatória na largura da tela
+      const posX = Math.random() * window.innerWidth;
+      caveira.style.left = `${posX}px`;
+
+      // tamanho e duração aleatórios
+      const tamanho = Math.random() * 30 + 20;
+      const duracao = Math.random() * 3 + 3;
+      caveira.style.fontSize = `${tamanho}px`;
+      caveira.style.animationDuration = `${duracao}s`;
+
+      // remove a caveira após cair
+      setTimeout(() => caveira.remove(), duracao * 1000);
+    }
+
+    // cria caveiras continuamente
+    setInterval(criarCaveira, 200);
+  </script>
+</body>
+</html>
